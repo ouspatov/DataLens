@@ -46,7 +46,9 @@
                              Style="{StaticResource MenuButtonTheme}"
                              Foreground="#D3B49E"
                              Content="&#xf015;"
-                             GroupName="SidebarGroup" />
+                             GroupName="SidebarGroup"
+                             IsChecked="True"
+                             Command="{Binding HomeViewCommand}"/>
                         <RadioButton x:Name="LensButton"
                              Height="100"
                              FontSize="48"
@@ -55,7 +57,9 @@
                              Style="{StaticResource MenuButtonTheme}"
                              Foreground="#D3B49E"
                              Content="&#xe473;"
-                             GroupName="SidebarGroup" />
+                             GroupName="SidebarGroup"
+                             IsChecked="True"
+                             Command="{Binding LensViewCommnand}"/>
                         <RadioButton x:Name="HistoryButton"
                              Height="100"
                              FontSize="48"
@@ -64,7 +68,9 @@
                              Style="{StaticResource MenuButtonTheme}"
                              Foreground="#D3B49E"
                              Content="&#xf1da;"
-                             GroupName="SidebarGroup" />
+                             GroupName="SidebarGroup"
+                             IsChecked="True"
+                             Command="{Binding HistoryViewCommand}"/>
                     </StackPanel>
 
                     <RadioButton Grid.Row="1"

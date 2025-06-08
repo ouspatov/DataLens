@@ -19,8 +19,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0"
-                    Margin="20">
+        <StackPanel Grid.Row="0" Margin="20">
             <TextBlock Text="Dashboard"
                FontFamily="{StaticResource JetBrainsMono}"
                FontSize="48"

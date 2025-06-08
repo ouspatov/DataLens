@@ -87,7 +87,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MVVM\Model\Categories.cs" />
     <Compile Include="MVVM\Model\FinancialRecords.cs" />
     <Compile Include="MVVM\Model\Transactions.cs" />
     <Compile Include="MVVM\ViewModel\HistoryViewModel.cs" />

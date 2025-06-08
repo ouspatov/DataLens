@@ -19,15 +19,14 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0"
-                    Margin="20">
-            <TextBlock Text="Lens View"
+        <StackPanel Grid.Row="0" Margin="20">
+            <TextBlock Text="History View"
                FontFamily="{StaticResource JetBrainsMono}"
                FontSize="48"
                Foreground="#EED2B5"
                FontWeight="Bold"
                Margin="0,0,0,8"/>
-            <TextBlock Text="See detailed information "
+            <TextBlock Text="See your activities"
                FontWeight="Regular"
                FontFamily="{StaticResource JetBrainsMono}"
                FontSize="20"
