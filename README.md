@@ -2,7 +2,6 @@
 
 **Datalens** is a modern finance tracker designed to help you easily monitor your income, expenses, and overall financial health  
 
----
 
 ## Features
 
@@ -11,7 +10,6 @@
 - **Dashboard** with key statistics and quick insights
 - **Beautiful and intuitive UI**
 
----
 
 ## Tech Stack
 
