@@ -36,93 +36,96 @@
                 Margin="32"
                 Padding="24">
             <StackPanel>
-                <!-- Section Header -->
                 <Grid Margin="0,0,0,16">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="Transactions"
-                            Grid.Column="0"
+                               Grid.Column="0"
+                               FontFamily="{StaticResource JetBrainsMono}"
+                               FontSize="32"
+                               Foreground="#EED2B5"
+                               FontWeight="Bold"
+                               VerticalAlignment="Center"/>
+                    <Button Content="Add Expense"
+                            Click="AddExpenseClick"
+                            Grid.Column="1"
+                            Width="120" Height="34"
                             FontFamily="{StaticResource JetBrainsMono}"
-                            FontSize="32"
+                            FontSize="15"
                             Foreground="#EED2B5"
-                            FontWeight="Bold"
-                            VerticalAlignment="Center"/>
-                    <Button  Content="Add Expense"
-                             Click="AddExpenseClick"
-                             Grid.Column="1"
-                             Width="120" Height="34"
-                             FontFamily="{StaticResource JetBrainsMono}"
-                             FontSize="15"
-                             Foreground="#EED2B5"
-                             Background="#181317"
-                             BorderBrush="#181317"
-                             Cursor="Hand"
-                             HorizontalAlignment="Right"/>   
+                            Background="#181317"
+                            BorderBrush="#181317"
+                            Cursor="Hand"
+                            HorizontalAlignment="Right"/>
                 </Grid>
 
                 <Border Background="#292027" CornerRadius="12">
                     <StackPanel>
                         <Grid Height="40" VerticalAlignment="Center">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="60*"/>
+                                <ColumnDefinition Width="60.4"/>
+                                <ColumnDefinition Width="99*"/>
+                                <ColumnDefinition Width="131*"/>
                             </Grid.ColumnDefinitions>
                             <Button Content="Name"
-                                Grid.Column="0"
-                                Command="{Binding SortCommand}"
-                                CommandParameter="Name"
-                                FontFamily="{StaticResource JetBrainsMono}"
-                                Foreground="#EED2B5"
-                                Background="Transparent"
-                                BorderThickness="0"
-                                FontWeight="Bold"
-                                FontSize="16"
-                                VerticalAlignment="Center"
-                                Margin="10,0"
-                                Cursor="Hand"/>
+                                    Grid.Column="0"
+                                    Command="{Binding SortCommand}"
+                                    CommandParameter="Name"
+                                    FontFamily="{StaticResource JetBrainsMono}"
+                                    Foreground="#EED2B5"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    FontWeight="Bold"
+                                    FontSize="16"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    Margin="10,0"
+                                    Cursor="Hand"/>
                             <Button Content="Date"
-                                Grid.Column="1"
-                                Command="{Binding SortCommand}"
-                                CommandParameter="Date"
-                                FontFamily="{StaticResource JetBrainsMono}"
-                                Foreground="#EED2B5"
-                                Background="Transparent"
-                                BorderThickness="0"
-                                FontWeight="Bold"
-                                FontSize="16"
-                                VerticalAlignment="Center"
-                                Margin="10,0"
-                                Cursor="Hand"/>
+                                    Grid.Column="1"
+                                    Command="{Binding SortCommand}"
+                                    CommandParameter="Date"
+                                    FontFamily="{StaticResource JetBrainsMono}"
+                                    Foreground="#EED2B5"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    FontWeight="Bold"
+                                    FontSize="16"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    Margin="10,0"
+                                    Cursor="Hand"/>
                             <Button Content="Category"
-                                Grid.Column="2"
-                                Command="{Binding SortCommand}"
-                                CommandParameter="Category"
-                                FontFamily="{StaticResource JetBrainsMono}"
-                                Foreground="#EED2B5"
-                                Background="Transparent"
-                                BorderThickness="0"
-                                FontWeight="Bold"
-                                FontSize="16"
-                                VerticalAlignment="Center"
-                                Margin="10,0"
-                                Cursor="Hand"/>
+                                    Grid.Column="2"
+                                    Command="{Binding SortCommand}"
+                                    CommandParameter="Category"
+                                    FontFamily="{StaticResource JetBrainsMono}"
+                                    Foreground="#EED2B5"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    FontWeight="Bold"
+                                    FontSize="16"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    Margin="10,0"
+                                    Cursor="Hand"/>
                             <Button Content="Amount"
-                                Grid.Column="3"
-                                Command="{Binding SortCommand}"
-                                CommandParameter="Amount"
-                                FontFamily="{StaticResource JetBrainsMono}"
-                                Foreground="#EED2B5"
-                                Background="Transparent"
-                                BorderThickness="0"
-                                FontWeight="Bold"
-                                FontSize="16"
-                                VerticalAlignment="Center"
-                                Margin="10,0"
-                                Cursor="Hand"/>
+                                    Grid.Column="3"
+                                    Command="{Binding SortCommand}"
+                                    CommandParameter="Amount"
+                                    FontFamily="{StaticResource JetBrainsMono}"
+                                    Foreground="#EED2B5"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    FontWeight="Bold"
+                                    FontSize="16"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    Margin="10,0"
+                                    Cursor="Hand"/>
                         </Grid>
 
                         <ItemsControl ItemsSource="{Binding Transactions}"
