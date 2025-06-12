@@ -8,5 +8,6 @@ namespace DataLens.MVVM.Model
 {
     internal class FinancialRecords
     {
+
     }
 }

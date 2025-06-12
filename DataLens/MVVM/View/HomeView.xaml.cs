@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataLens.Components;
+using DataLens.MVVM.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,14 +17,21 @@ using System.Windows.Shapes;
 
 namespace DataLens.MVVM.View
 {
-    /// <summary>
-    /// Interaction logic for HomeView.xaml
-    /// </summary>
     public partial class HomeView : UserControl
     {
         public HomeView()
         {
             InitializeComponent();
+            DataContext = new HomeViewModel();
+        }
+        private void AddExpenseClick(object sender, RoutedEventArgs e)
+        {
+            var window = new EditWindow();
+            if (window.ShowDialog() == true)
+            {
+                var viewModel = DataContext as HomeViewModel;
+                viewModel?.AddTransaction(window.ResultTransaction);
+            }
         }
     }
 }
