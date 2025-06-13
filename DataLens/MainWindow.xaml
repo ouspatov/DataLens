@@ -47,7 +47,6 @@
                              Style="{StaticResource MenuButtonTheme}"
                              Foreground="#D3B49E"
                              Content="&#xf015;"
-                             GroupName="SidebarGroup"
                              IsChecked="True"
                              Command="{Binding HomeViewCommand}"/>
                         <RadioButton x:Name="LensButton"
@@ -58,7 +57,6 @@
                              Style="{StaticResource MenuButtonTheme}"
                              Foreground="#D3B49E"
                              Content="&#xe473;"
-                             GroupName="SidebarGroup"
                              IsChecked="True"
                              Command="{Binding LensViewCommnand}"/>
                         <RadioButton x:Name="HistoryButton"
@@ -69,7 +67,6 @@
                              Style="{StaticResource MenuButtonTheme}"
                              Foreground="#D3B49E"
                              Content="&#xf1da;"
-                             GroupName="SidebarGroup"
                              IsChecked="True"
                              Command="{Binding HistoryViewCommand}"/>
                     </StackPanel>
@@ -83,14 +80,9 @@
                              Style="{StaticResource MenuButtonTheme}"
                              Foreground="#D3B49E"
                              Content="&#xf2f5;"
-                             GroupName="SidebarGroup"
                              Margin="0,0,0,20"/>
                 </Grid>
             </Border>
-
-            <Grid Grid.Column="1">
-
-            </Grid>
 
             <ContentControl Grid.Row="1"
                             Grid.Column="1"

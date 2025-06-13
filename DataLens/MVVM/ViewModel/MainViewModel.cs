@@ -35,6 +35,7 @@ namespace DataLens.MVVM.ViewModel
 
             CurrentView = HomeVM;
 
+            // Pages Switch
             HomeViewCommand = new RelayCommand(o =>
             {
                 CurrentView = HomeVM;

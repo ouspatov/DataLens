@@ -43,7 +43,7 @@ namespace DataLens.MVVM.ViewModel
         {
             var transactions = TransactionStorage.Load();
 
-            SKColor[] palette = new SKColor[]
+            SKColor[]Palette = new SKColor[]
             {
                 new SKColor(227, 151, 179),
                 new SKColor(43, 182, 168),
@@ -68,7 +68,7 @@ namespace DataLens.MVVM.ViewModel
             {
                 Name = category,
                 Values = new[] { (double)transactions.Where(t => t.Category == category).Sum(x => x.Amount) },
-                Fill = new SolidColorPaint(palette[i % palette.Length]),
+                Fill = new SolidColorPaint(Palette[i % Palette.Length]),
                 DataLabelsSize = 16,
             }).ToArray();
 
@@ -88,12 +88,13 @@ namespace DataLens.MVVM.ViewModel
                 {
                     Name = category,
                     Values = values,
-                    Stroke = new SolidColorPaint(palette[i % palette.Length], 4),
+                    Stroke = new SolidColorPaint(Palette[i % Palette.Length], 4),
                     GeometrySize = 12,
                     LineSmoothness = 0,
-                    GeometryFill = new SolidColorPaint(palette[i % palette.Length]),
+                    GeometryFill = new SolidColorPaint(Palette[i % Palette.Length]),
                 });
             }
+
             LineSeries = lineSeriesList.ToArray();
 
             LineXAxes = new Axis[]
@@ -105,7 +106,6 @@ namespace DataLens.MVVM.ViewModel
                     LabelsPaint = new SolidColorPaint(SKColors.White),
                     NamePaint = new SolidColorPaint(SKColors.White),
                     TextSize = 16,
-                    //FontFamily = "JetBrains Mono"
                 }
             };
 
@@ -117,7 +117,6 @@ namespace DataLens.MVVM.ViewModel
                     LabelsPaint = new SolidColorPaint(SKColors.White),
                     NamePaint = new SolidColorPaint(SKColors.White),
                     TextSize = 16,
-                    //FontFamily = "JetBrains Mono"
                 }
             };
         }

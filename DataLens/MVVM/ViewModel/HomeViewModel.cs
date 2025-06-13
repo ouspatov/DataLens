@@ -16,9 +16,10 @@ namespace DataLens.MVVM.ViewModel
         public ICommand DeleteExpenseCommand { get; }
         public ICommand SortCommand { get; }
 
-        private string _lastSortProperty;
-        private bool _sortDescending;
+        private string _lastSortProperty; // last used for sorting
+        private bool _sortDescending; // descending(true) / ascending(false)
 
+        // Constructor
         public HomeViewModel()
         {
             Transactions = new ObservableCollection<Transaction>(TransactionStorage.Load());
@@ -32,6 +33,8 @@ namespace DataLens.MVVM.ViewModel
             if (parameter is Transaction selectedTransaction)
             {
                 var editWindow = new EditWindow();
+
+                // Save or Cancel Implementation
                 var transactionCopy = new Transaction
                 {
                     Name = selectedTransaction.Name,
@@ -63,7 +66,7 @@ namespace DataLens.MVVM.ViewModel
 
         private void Sort(object parameter)
         {
-            string property = parameter as string;
+            string property = parameter as string; // If string remains string else becomes null
             if (string.IsNullOrEmpty(property)) return;
 
             if (_lastSortProperty == property)
