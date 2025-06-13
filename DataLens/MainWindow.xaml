@@ -5,6 +5,7 @@
         xmlns:viewModel="clr-namespace:DataLens.MVVM.ViewModel"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DataLens"
+        xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
         mc:Ignorable="d"
         Height="800" Width="1280"
         WindowStyle="None"
@@ -95,7 +96,6 @@
                             Grid.Column="1"
                             Margin="10"
                             Content="{Binding CurrentView}"/>
-            
         </Grid>
     </Border>
 </Window>

@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using LiveChartsCore;
+
 
 namespace DataLens
 {
@@ -13,5 +15,6 @@ namespace DataLens
     /// </summary>
     public partial class App : Application
     {
+
     }
 }

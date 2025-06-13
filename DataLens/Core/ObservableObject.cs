@@ -15,6 +15,15 @@ namespace DataLens.Core
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        protected bool SetProperty<T>(ref T backingField, T value, [CallerMemberName] string propertyName = null)
+        {
+            if (EqualityComparer<T>.Default.Equals(backingField, value))
+                return false;
+            backingField = value;
+            OnPropertyChanged(propertyName);
+            return true;
+        }
+
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
