@@ -39,55 +39,61 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Grid.Row="0" VerticalAlignment="Center">
-                        <RadioButton x:Name="DataButton"
-                             Height="100"
-                             FontSize="48"
-                             FontWeight="Bold"
-                             FontFamily="{StaticResource SidebarIcons}"
-                             Style="{StaticResource MenuButtonTheme}"
-                             Foreground="#D3B49E"
-                             Content="&#xf015;"
-                             IsChecked="True"
-                             Command="{Binding HomeViewCommand}"/>
-                        <RadioButton x:Name="LensButton"
-                             Height="100"
-                             FontSize="48"
-                             FontWeight="Bold"
-                             FontFamily="{StaticResource SidebarIcons}"
-                             Style="{StaticResource MenuButtonTheme}"
-                             Foreground="#D3B49E"
-                             Content="&#xe473;"
-                             IsChecked="True"
-                             Command="{Binding LensViewCommnand}"/>
-                        <RadioButton x:Name="HistoryButton"
-                             Height="100"
-                             FontSize="48"
-                             FontWeight="Bold"
-                             FontFamily="{StaticResource SidebarIcons}"
-                             Style="{StaticResource MenuButtonTheme}"
-                             Foreground="#D3B49E"
-                             Content="&#xf1da;"
-                             IsChecked="True"
-                             Command="{Binding HistoryViewCommand}"/>
+                        <RadioButton 
+                            x:Name="DataButton"
+                            Height="100"
+                            FontSize="48"
+                            FontWeight="Bold"
+                            FontFamily="{StaticResource SidebarIcons}"
+                            Style="{StaticResource MenuButtonTheme}"
+                            Foreground="#D3B49E"
+                            Content="&#xf015;"
+                            IsChecked="True"
+                            Command="{Binding HomeViewCommand}"/>
+                        <RadioButton 
+                            x:Name="LensButton"
+                            Height="100"
+                            FontSize="48"
+                            FontWeight="Bold"
+                            FontFamily="{StaticResource SidebarIcons}"
+                            Style="{StaticResource MenuButtonTheme}"
+                            Foreground="#D3B49E"
+                            Content="&#xe473;"
+                            IsChecked="True"
+                            Command="{Binding LensViewCommnand}"/>
+                        <RadioButton 
+                            x:Name="HistoryButton"
+                            Height="100"
+                            FontSize="48"
+                            FontWeight="Bold"
+                            FontFamily="{StaticResource SidebarIcons}"
+                            Style="{StaticResource MenuButtonTheme}"
+                            Foreground="#D3B49E"
+                            Content="&#xf1da;"
+                            IsChecked="True"
+                            Command="{Binding HistoryViewCommand}"/>
                     </StackPanel>
 
-                    <RadioButton Grid.Row="1"
-                             x:Name="ExitButton"
-                             Height="100"
-                             FontSize="48"
-                             FontWeight="Bold"
-                             FontFamily="{StaticResource SidebarIcons}"
-                             Style="{StaticResource MenuButtonTheme}"
-                             Foreground="#D3B49E"
-                             Content="&#xf2f5;"
-                             Margin="0,0,0,20"/>
+                    <RadioButton 
+                        Grid.Row="1"
+                        x:Name="ExitButton"
+                        Height="100"
+                        FontSize="48"
+                        FontWeight="Bold"
+                        FontFamily="{StaticResource SidebarIcons}"
+                        Style="{StaticResource MenuButtonTheme}"
+                        Foreground="#D3B49E"
+                        Content="&#xf2f5;"
+                        Margin="0,0,0,20"
+                        Command="{Binding QuitCommand}"/>
                 </Grid>
             </Border>
 
-            <ContentControl Grid.Row="1"
-                            Grid.Column="1"
-                            Margin="10"
-                            Content="{Binding CurrentView}"/>
+            <ContentControl 
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="10"
+                Content="{Binding CurrentView}"/>
         </Grid>
     </Border>
 </Window>

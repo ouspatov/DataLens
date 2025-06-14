@@ -1,5 +1,4 @@
-﻿using DataLens.MVVM.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DataLens.MVVM.View
+namespace DataLens.Components
 {
     /// <summary>
-    /// Interaction logic for HistoryView.xaml
+    /// Interaction logic for ActivityLogRowComponent.xaml
     /// </summary>
-    public partial class HistoryView : UserControl
+    public partial class HistoryRowComponent : UserControl
     {
-        public HistoryView()
+        public HistoryRowComponent()
         {
             InitializeComponent();
-            DataContext = new HistoryViewModel();
         }
     }
 }

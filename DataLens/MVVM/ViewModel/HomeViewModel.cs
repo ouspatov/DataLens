@@ -1,11 +1,13 @@
-﻿using DataLens.Components;
-using DataLens.Core;
-using DataLens.MVVM.Model;
-using DataLens.MVVM.Services;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using DataLens.Components;
+using DataLens.Core;
+using DataLens.MVVM.Model;
+using DataLens.MVVM.Services;
+
 
 namespace DataLens.MVVM.ViewModel
 {
@@ -16,10 +18,9 @@ namespace DataLens.MVVM.ViewModel
         public ICommand DeleteExpenseCommand { get; }
         public ICommand SortCommand { get; }
 
-        private string _lastSortProperty; // last used for sorting
-        private bool _sortDescending; // descending(true) / ascending(false)
+        private string _lastSortProperty;
+        private bool _sortDescending;
 
-        // Constructor
         public HomeViewModel()
         {
             Transactions = new ObservableCollection<Transaction>(TransactionStorage.Load());
@@ -34,7 +35,6 @@ namespace DataLens.MVVM.ViewModel
             {
                 var editWindow = new EditWindow();
 
-                // Save or Cancel Implementation
                 var transactionCopy = new Transaction
                 {
                     Name = selectedTransaction.Name,
@@ -42,6 +42,7 @@ namespace DataLens.MVVM.ViewModel
                     Category = selectedTransaction.Category,
                     Amount = selectedTransaction.Amount
                 };
+
                 editWindow.DataContext = transactionCopy;
 
                 if (editWindow.ShowDialog() == true)
@@ -50,7 +51,8 @@ namespace DataLens.MVVM.ViewModel
                     selectedTransaction.Date = transactionCopy.Date;
                     selectedTransaction.Category = transactionCopy.Category;
                     selectedTransaction.Amount = transactionCopy.Amount;
-                    TransactionStorage.Save(Transactions);
+
+                    PersistAndLogHistory("Edit", selectedTransaction);
                 }
             }
         }
@@ -60,13 +62,19 @@ namespace DataLens.MVVM.ViewModel
             if (parameter is Transaction selectedTransaction)
             {
                 Transactions.Remove(selectedTransaction);
-                TransactionStorage.Save(Transactions);
+                PersistAndLogHistory("Delete", selectedTransaction);
             }
+        }
+
+        public void AddTransaction(Transaction tx)
+        {
+            Transactions.Add(tx);
+            PersistAndLogHistory("Add", tx);
         }
 
         private void Sort(object parameter)
         {
-            string property = parameter as string; // If string remains string else becomes null
+            string property = parameter as string;
             if (string.IsNullOrEmpty(property)) return;
 
             if (_lastSortProperty == property)
@@ -83,24 +91,16 @@ namespace DataLens.MVVM.ViewModel
             switch (property)
             {
                 case "Name":
-                    sorted = _sortDescending
-                        ? Transactions.OrderByDescending(t => t.Name)
-                        : Transactions.OrderBy(t => t.Name);
+                    sorted = _sortDescending ? Transactions.OrderByDescending(t => t.Name) : Transactions.OrderBy(t => t.Name);
                     break;
                 case "Date":
-                    sorted = _sortDescending
-                        ? Transactions.OrderByDescending(t => t.Date)
-                        : Transactions.OrderBy(t => t.Date);
+                    sorted = _sortDescending ? Transactions.OrderByDescending(t => t.Date) : Transactions.OrderBy(t => t.Date);
                     break;
                 case "Category":
-                    sorted = _sortDescending
-                        ? Transactions.OrderByDescending(t => t.Category)
-                        : Transactions.OrderBy(t => t.Category);
+                    sorted = _sortDescending ? Transactions.OrderByDescending(t => t.Category) : Transactions.OrderBy(t => t.Category);
                     break;
                 case "Amount":
-                    sorted = _sortDescending
-                        ? Transactions.OrderByDescending(t => t.Amount)
-                        : Transactions.OrderBy(t => t.Amount);
+                    sorted = _sortDescending ? Transactions.OrderByDescending(t => t.Amount) : Transactions.OrderBy(t => t.Amount);
                     break;
                 default:
                     sorted = Transactions;
@@ -111,11 +111,17 @@ namespace DataLens.MVVM.ViewModel
             OnPropertyChanged(nameof(Transactions));
         }
 
-
-        public void AddTransaction(Transaction tx)
+        private void PersistAndLogHistory(string action, Transaction transaction)
         {
-            Transactions.Add(tx);
             TransactionStorage.Save(Transactions);
+            HistoryStorage.AddRecord(new HistoryRecord
+            {
+                Timestamp = DateTime.Now,
+                Action = action,
+                ItemName = transaction.Name,
+                Details = $"Date: {transaction.Date:yyyy-MM-dd}, Category: {transaction.Category}, Amount: {transaction.Amount}"
+            });
         }
+
     }
 }

@@ -4,8 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DataLens.Components"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d" >
 
     <UserControl.Resources>
         <FontFamily x:Key="JetBrainsMono">pack://application:,,,/Fonts/#JetBrains Mono</FontFamily>
@@ -22,56 +21,60 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="{Binding Name}" Grid.Column="0"
-                   FontFamily="{StaticResource JetBrainsMono}"
-                   Foreground="#EED2B5" 
-                   FontSize="16"
-                   VerticalAlignment="Center"
-                   Margin="10,0"/>
-        <TextBlock Text="{Binding Date}" Grid.Column="1"
-                   FontFamily="{StaticResource JetBrainsMono}"
-                   Foreground="#EED2B5"
-                   FontSize="16"
-                   VerticalAlignment="Center"
-                   Margin="10,0"/>
-        <TextBlock Text="{Binding Category}" Grid.Column="2"
-                   FontFamily="{StaticResource JetBrainsMono}"
-                   Foreground="#EED2B5"
-                   FontSize="16"
-                   VerticalAlignment="Center"
-                   Margin="10,0"/>
-        <TextBlock Text="{Binding Amount}" Grid.Column="3"
-                   FontFamily="{StaticResource JetBrainsMono}"
-                   Foreground="#EED2B5"
-                   FontSize="16"
-                   VerticalAlignment="Center"
-                   Margin="10,0"/>
-        
-        <Button Grid.Column="4"
-                Width="48" Height="48"
-                FontFamily="{StaticResource RegularIcons}"
-                FontWeight="Regular"
-                FontSize="16"
-                Content="&#xf044;"
-                ToolTip="Edit"
-                Command="{Binding DataContext.EditExpenseCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
-                CommandParameter="{Binding}"
-                Background="#292027"
-                Foreground="#EED2B5"
-                BorderThickness="0"
-                Cursor="Hand"/>
-        <Button Grid.Column="5"
-                Width="48" Height="48"
-                FontWeight="Regular"
-                FontSize="16"
-                FontFamily="{StaticResource RegularIcons}"
-                Content="&#xf2ed;"
-                ToolTip="Delete"
-                Command="{Binding DataContext.DeleteExpenseCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
-                CommandParameter="{Binding}"
-                Background="#292027"
-                Foreground="#EED2B5"
-                BorderThickness="0"
-                Cursor="Hand"/>
+        <TextBlock 
+            Text="{Binding Name}" Grid.Column="0"
+            FontFamily="{StaticResource JetBrainsMono}"
+            Foreground="#EED2B5" 
+            FontSize="16"
+            VerticalAlignment="Center"
+            Margin="10,0"/>
+        <TextBlock 
+            Text="{Binding Date}" Grid.Column="1"
+            FontFamily="{StaticResource JetBrainsMono}"
+            Foreground="#EED2B5"
+            FontSize="16"
+            VerticalAlignment="Center"
+            Margin="10,0"/>
+        <TextBlock 
+            Text="{Binding Category}" Grid.Column="2"
+            FontFamily="{StaticResource JetBrainsMono}"
+            Foreground="#EED2B5"
+            FontSize="16"
+            VerticalAlignment="Center"
+            Margin="10,0"/>
+        <TextBlock 
+            Text="{Binding Amount}" Grid.Column="3"
+            FontFamily="{StaticResource JetBrainsMono}"
+            Foreground="#EED2B5"
+            FontSize="16"
+            VerticalAlignment="Center"
+            Margin="10,0"/>
+
+        <Button 
+            Grid.Column="4"
+            Width="48" Height="48"
+            FontFamily="{StaticResource RegularIcons}"
+            FontWeight="Regular"
+            FontSize="16"
+            Content="&#xf044;"
+            Command="{Binding DataContext.EditExpenseCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+            CommandParameter="{Binding}"
+            Background="#292027"
+            Foreground="#EED2B5"
+            BorderThickness="0"
+            Cursor="Hand"/>
+        <Button 
+            Grid.Column="5"
+            Width="48" Height="48"
+            FontWeight="Regular"
+            FontSize="16"
+            FontFamily="{StaticResource RegularIcons}"
+            Content="&#xf2ed;"
+            Command="{Binding DataContext.DeleteExpenseCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+            CommandParameter="{Binding}"
+            Background="#292027"
+            Foreground="#EED2B5"
+            BorderThickness="0"
+            Cursor="Hand"/>
     </Grid>
 </UserControl>

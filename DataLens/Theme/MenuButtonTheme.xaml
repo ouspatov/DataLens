@@ -9,23 +9,17 @@
                     <ControlTemplate TargetType="RadioButton">
                         <Grid VerticalAlignment="Stretch"
                               HorizontalAlignment="Stretch">
-                            <TextBlock Text="{TemplateBinding Property=Content}"
-                                       VerticalAlignment="Center"
-                                       HorizontalAlignment="Center"/>
+                            <TextBlock 
+                                Text="{TemplateBinding Property=Content}"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
 
             <Setter Property="Background" Value="Transparent"/>
-
             <Setter Property="BorderThickness" Value="0"/>
         </Style.Setters>
-
-        <Style.Triggers>
-            <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Background" Value="#372B31"/>
-            </Trigger>
-        </Style.Triggers>
     </Style>
 </ResourceDictionary>

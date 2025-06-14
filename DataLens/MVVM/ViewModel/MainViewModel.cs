@@ -1,9 +1,5 @@
 ﻿using DataLens.Core;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataLens.MVVM.ViewModel
 {
@@ -13,6 +9,8 @@ namespace DataLens.MVVM.ViewModel
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand LensViewCommnand { get; set; }
         public RelayCommand HistoryViewCommand { get; set; }
+        public RelayCommand QuitCommand { get; set; }
+
         public HomeViewModel HomeVM { get; set; }
         public LensViewModel LensVM { get; set; }
         public HistoryViewModel HistoryVM { get; set; }
@@ -35,7 +33,6 @@ namespace DataLens.MVVM.ViewModel
 
             CurrentView = HomeVM;
 
-            // Pages Switch
             HomeViewCommand = new RelayCommand(o =>
             {
                 CurrentView = HomeVM;
@@ -50,6 +47,8 @@ namespace DataLens.MVVM.ViewModel
             {
                 CurrentView = HistoryVM;
             });
+
+            QuitCommand = new RelayCommand(o => System.Windows.Application.Current.Shutdown());
         }
     }
 }

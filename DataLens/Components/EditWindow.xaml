@@ -11,7 +11,6 @@
         Background="Transparent"
         AllowsTransparency="True">
 
-
     <Window.Resources>
         <FontFamily x:Key="JetBrainsMono">pack://application:,,,/Fonts/#JetBrains Mono</FontFamily>
         <FontFamily x:Key="SidebarIcons">./Fonts/#Font Awesome 6 Free Solid</FontFamily>
@@ -31,94 +30,116 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Edit"
-                       FontSize="36"
-                       FontWeight="Bold"
-                       Foreground="#EED2B5"
-                       FontFamily="{StaticResource JetBrainsMono}"
-                       Margin="0,0,0,60"
-                       Grid.Row="0"/>
+            <TextBlock 
+                Text="Edit"
+                FontSize="36"
+                FontWeight="Bold"
+                Foreground="#EED2B5"
+                FontFamily="{StaticResource JetBrainsMono}"
+                Margin="0,0,0,60"
+                Grid.Row="0"/>
 
-            <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Center">
-                <TextBlock Text="Name:"
-                           FontFamily="{StaticResource JetBrainsMono}"
-                           FontWeight="Regular"
-                           Foreground="#FFE9D7BD"
-                           FontSize="16"
-                           Width="100"/>
+            <StackPanel 
+                Orientation="Horizontal"
+                Grid.Row="1"
+                VerticalAlignment="Center">
+                <TextBlock 
+                    Text="Name:"
+                    FontFamily="{StaticResource JetBrainsMono}"
+                    FontWeight="Regular"
+                    Foreground="#FFE9D7BD"
+                    FontSize="16"
+                    Width="100"/>
 
-                <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
-                         Width="180"
-                         Background="#292027"
-                         FontSize="16"/>
+                <TextBox 
+                    Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                    Width="180"
+                    Background="#292027"
+                    FontSize="16"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Grid.Row="2" VerticalAlignment="Center">
-                <TextBlock Text="Date:"
-                           FontFamily="{StaticResource JetBrainsMono}"
-                           FontWeight="Regular"
-                           Foreground="#FFE9D7BD"
-                           FontSize="16"
-                           Width="100"/>
-                <DatePicker SelectedDate="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                            Width="180"
-                            Background="#292027"
-                            Foreground="#FFE9D7BD"
-                            FontSize="16"/>
+            <StackPanel 
+                Orientation="Horizontal" 
+                Grid.Row="2"
+                VerticalAlignment="Center">
+                <TextBlock 
+                    Text="Date:"
+                    FontFamily="{StaticResource JetBrainsMono}"
+                    FontWeight="Regular"
+                    Foreground="#FFE9D7BD"
+                    FontSize="16"
+                    Width="100"/>
+                <DatePicker 
+                    SelectedDate="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    Width="180"
+                    Background="#292027"
+                    Foreground="#FFE9D7BD"
+                    FontSize="16"/>
             </StackPanel>
 
 
-            <StackPanel Orientation="Horizontal" Grid.Row="3" VerticalAlignment="Center">
-                <TextBlock Text="Category:"
-                           FontFamily="{StaticResource JetBrainsMono}"
-                           FontWeight="Regular"
-                           Foreground="#FFE9D7BD"
-                           FontSize="16"
-                           Width="100"/>
+            <StackPanel 
+                Orientation="Horizontal"
+                Grid.Row="3" 
+                VerticalAlignment="Center">
+                <TextBlock 
+                    Text="Category:"
+                    FontFamily="{StaticResource JetBrainsMono}"
+                    FontWeight="Regular"
+                    Foreground="#FFE9D7BD"
+                    FontSize="16"
+                    Width="100"/>
                 <TextBox Text="{Binding Category, UpdateSourceTrigger=PropertyChanged}"
                          Width="180"
                          Background="#292027"
                          FontSize="16"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Grid.Row="4" VerticalAlignment="Center">
-                <TextBlock Text="Amount:"
-                           FontFamily="{StaticResource JetBrainsMono}"
-                           FontWeight="Regular"
-                           Foreground="#FFE9D7BD"
-                           FontSize="16"
-                           Width="100"/>
-                <TextBox Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged}"
-                         Width="180"
-                         Background="#292027"
-                         FontSize="16"/>
+            <StackPanel 
+                Orientation="Horizontal"
+                Grid.Row="4"
+                VerticalAlignment="Center">
+                <TextBlock 
+                    Text="Amount:"
+                    FontFamily="{StaticResource JetBrainsMono}"
+                    FontWeight="Regular"
+                    Foreground="#FFE9D7BD"
+                    FontSize="16"
+                    Width="100"/>
+                <TextBox 
+                    Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged}"
+                    Width="180"
+                    Background="#292027"
+                    FontSize="16"/>
             </StackPanel>
             
-            <StackPanel Orientation="Horizontal"
-                        Grid.Row="5"
-                        HorizontalAlignment="Center"
-                        Margin="0,32,0,0"
-                        >
-                <Button Content="Save"
-                        Width="90"
-                        Height="32"
-                        Margin="4"
-                        Background="#231D22"
-                        Foreground="#FFE9D7BD"
-                        FontFamily="{StaticResource JetBrainsMono}"
-                        FontSize="15"
-                        Cursor="Hand"
-                        Click="SaveButton_Click"/>
-                <Button Content="Cancel"
-                        Width="90"
-                        Height="32"
-                        Margin="4"
-                        Background="#231D22"
-                        Foreground="#FFE9D7BD"
-                        FontFamily="{StaticResource JetBrainsMono}"
-                        FontSize="15"
-                        Cursor="Hand"
-                        Click="CancelButton_Click"/>
+            <StackPanel 
+                Orientation="Horizontal"
+                Grid.Row="5"
+                HorizontalAlignment="Center"
+                Margin="0,32,0,0">
+                <Button 
+                    Content="Save"
+                    Width="90"
+                    Height="32"
+                    Margin="4"
+                    Background="#231D22"
+                    Foreground="#FFE9D7BD"
+                    FontFamily="{StaticResource JetBrainsMono}"
+                    FontSize="15"
+                    Cursor="Hand"
+                    Click="SaveButtonClick"/>
+                <Button 
+                    Content="Cancel"
+                    Width="90"
+                    Height="32"
+                    Margin="4"
+                    Background="#231D22"
+                    Foreground="#FFE9D7BD"
+                    FontFamily="{StaticResource JetBrainsMono}"
+                    FontSize="15"
+                    Cursor="Hand"
+                    Click="CancelButtonClick"/>
             </StackPanel>
         </Grid>
     </Border>

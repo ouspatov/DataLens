@@ -28,12 +28,12 @@ namespace DataLens.Components
             InitializeComponent();
             DataContext = ResultTransaction;
         }
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        private void SaveButtonClick(object sender, RoutedEventArgs e)
         {
             DialogResult = true;
         }
 
-        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        private void CancelButtonClick(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
         }
