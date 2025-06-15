@@ -7,13 +7,12 @@
 
 - **Add, edit, and delete transactions** (income and expenses)
 - **Categorize your spending**
-- **Dashboard** with key statistics and quick insights
-- **Beautiful and intuitive UI**
-
+- **Beautiful UI**
 
 ## Tech Stack
 
 - **C# / .NET**
 - **WPF (Windows Presentation Foundation)**
+- **LiveCharts2**
 - **MVVM architecture**
 - **JSON** for local data storage
