@@ -1,0 +1,141 @@
+﻿<UserControl x:Class="DataLens.MVVM.View.HistoryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:DataLens.Components">
+
+    <UserControl.Resources>
+        <FontFamily x:Key="JetBrainsMono">pack://application:,,,/Fonts/#JetBrains Mono</FontFamily>
+        <DataTemplate x:Key="ActivityLogRowComponent">
+            <local:HistoryRowComponent/>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="20">
+            <TextBlock 
+                Text="History"
+                FontFamily="{StaticResource JetBrainsMono}"
+                FontSize="48"
+                Foreground="#EED2B5"
+                FontWeight="Bold"
+                Margin="0,0,0,8"/>
+            <TextBlock Text="History of expenses"
+                FontWeight="Regular"
+                FontFamily="{StaticResource JetBrainsMono}"
+                FontSize="20"
+                Foreground="#C79C7F"/>
+        </StackPanel>
+
+
+        <Border Grid.Row="1"
+                Background="#241C22"
+                CornerRadius="16"
+                Margin="32"
+                Padding="24">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Margin="0,0,0,16">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1.2*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="1.7*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button 
+                        Content="Name"
+                        Grid.Column="0"
+                        CommandParameter="Name"
+                        FontFamily="{StaticResource JetBrainsMono}"
+                        Foreground="#EED2B5"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        FontWeight="Bold"
+                        FontSize="16"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Margin="10,0"
+                        Cursor="Hand"/>
+                    <Button 
+                        Content="Date"
+                        Grid.Column="1"
+                        CommandParameter="Date"
+                        FontFamily="{StaticResource JetBrainsMono}"
+                        Foreground="#EED2B5"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        FontWeight="Bold"
+                        FontSize="16"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Margin="10,0"
+                        Cursor="Hand"/>
+                    <Button 
+                        Content="Action"
+                        Grid.Column="2"
+                        CommandParameter="Action"
+                        FontFamily="{StaticResource JetBrainsMono}"
+                        Foreground="#EED2B5"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        FontWeight="Bold"
+                        FontSize="16"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Margin="10,0"
+                        Cursor="Hand"/>
+                    <Button 
+                        Content="Detail"
+                        Grid.Column="3"
+                        CommandParameter="Detail"
+                        FontFamily="{StaticResource JetBrainsMono}"
+                        Foreground="#EED2B5"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        FontWeight="Bold"
+                        FontSize="16"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Margin="10,0"
+                        Cursor="Hand"/>
+                    <Button 
+                        Content="Clear"
+                        Grid.Column="4"
+                        Command="{Binding ClearLogCommand}"
+                        FontFamily="{StaticResource JetBrainsMono}"
+                        Foreground="#EED2B5"
+                        Background="#21181C"
+                        BorderThickness="0"
+                        FontWeight="Bold"
+                        FontSize="16"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        Padding="16,2"
+                        Margin="0,0,12,0"
+                        Cursor="Hand"/>
+                </Grid>
+
+                <ItemsControl 
+                    Grid.Row="1"
+                    ItemsSource="{Binding Records}"
+                    ItemTemplate="{StaticResource ActivityLogRowComponent}"
+                    Margin="0">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

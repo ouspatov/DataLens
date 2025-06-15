@@ -1,0 +1,102 @@
+﻿<UserControl x:Class="DataLens.MVVM.View.LensView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DataLens.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1140"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF">
+
+    <UserControl.Resources>
+        <FontFamily x:Key="JetBrainsMono">pack://application:,,,/Fonts/#JetBrains Mono</FontFamily>
+        <FontFamily x:Key="SidebarIcons">./Fonts/#Font Awesome 6 Free Solid</FontFamily>
+        <FontFamily x:Key="RegularIcons">./Fonts/#Font Awesome 6 Free Regular</FontFamily>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="20">
+            <TextBlock 
+                Text="Lens View"
+                FontFamily="{StaticResource JetBrainsMono}"
+                FontSize="48"
+                Foreground="#EED2B5"
+                FontWeight="Bold"
+                Margin="0,0,0,8"/>
+            <TextBlock 
+                Text="See detailed information"
+                FontWeight="Regular"
+                FontFamily="{StaticResource JetBrainsMono}"
+                FontSize="20"
+                Foreground="#C79C7F"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1" Margin="32,0,32,32">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border Background="#241C22" CornerRadius="16" Margin="12" Padding="20" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
+                <lvc:PieChart 
+                    Series="{Binding PieSeries}"
+                    LegendPosition="Hidden"
+                    FontFamily="{StaticResource JetBrainsMono}"/>
+            </Border>
+            <Border Background="#241C22" CornerRadius="16" Margin="12" Padding="20" Grid.Column="1" Grid.Row="0">
+                <lvc:CartesianChart
+                    Series="{Binding LineSeries}"
+                    XAxes="{Binding LineXAxes}"
+                    YAxes="{Binding LineYAxes}"
+                    LegendPosition="Hidden"/>
+            </Border>
+            <Border Background="#241C22"
+                    CornerRadius="16"
+                    Margin="12"
+                    Padding="30"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch">
+                <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <TextBlock Text="Total:"
+                        FontFamily="{StaticResource JetBrainsMono}"
+                        FontSize="24"
+                        Foreground="#EED2B5"
+                        FontWeight="Bold"
+                        Margin="0,0,0,10"/>
+                    <TextBlock 
+                        Text="Spent last month:"
+                        FontFamily="{StaticResource JetBrainsMono}"
+                        FontSize="16"
+                        Foreground="#C79C7F"
+                        Margin="0,4,0,0"
+                        TextAlignment="Left"/>
+                    <TextBlock 
+                        Text="Spent last 2 months:"
+                        FontFamily="{StaticResource JetBrainsMono}"
+                        FontSize="16"
+                        Foreground="#C79C7F"
+                        Margin="0,4,0,0"
+                        TextAlignment="Left"/>
+                    <TextBlock 
+                        Text="Spent last 3 months:"
+                        FontFamily="{StaticResource JetBrainsMono}"
+                        FontSize="16"
+                        Foreground="#C79C7F"
+                        Margin="0,4,0,0"
+                        TextAlignment="Left"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

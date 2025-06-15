@@ -1,0 +1,99 @@
+﻿<Window x:Class="DataLens.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:viewModel="clr-namespace:DataLens.MVVM.ViewModel"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataLens"
+        xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+        mc:Ignorable="d"
+        Height="800" Width="1280"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True">
+
+    <Window.Resources>
+        <FontFamily x:Key="JetBrainsMono">pack://application:,,,/Fonts/#JetBrains Mono</FontFamily>
+        <FontFamily x:Key="SidebarIcons">./Fonts/#Font Awesome 6 Free Solid</FontFamily>
+        <FontFamily x:Key="RegularIcons">./Fonts/#Font Awesome 6 Free Regular</FontFamily>
+    </Window.Resources>
+
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+
+    <Border Background="#292027"
+            CornerRadius="12">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Border Background="#33272E" CornerRadius="12">
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" VerticalAlignment="Center">
+                        <RadioButton 
+                            x:Name="DataButton"
+                            Height="100"
+                            FontSize="48"
+                            FontWeight="Bold"
+                            FontFamily="{StaticResource SidebarIcons}"
+                            Style="{StaticResource MenuButtonTheme}"
+                            Foreground="#D3B49E"
+                            Content="&#xf015;"
+                            IsChecked="True"
+                            Command="{Binding HomeViewCommand}"/>
+                        <RadioButton 
+                            x:Name="LensButton"
+                            Height="100"
+                            FontSize="48"
+                            FontWeight="Bold"
+                            FontFamily="{StaticResource SidebarIcons}"
+                            Style="{StaticResource MenuButtonTheme}"
+                            Foreground="#D3B49E"
+                            Content="&#xe473;"
+                            IsChecked="True"
+                            Command="{Binding LensViewCommnand}"/>
+                        <RadioButton 
+                            x:Name="HistoryButton"
+                            Height="100"
+                            FontSize="48"
+                            FontWeight="Bold"
+                            FontFamily="{StaticResource SidebarIcons}"
+                            Style="{StaticResource MenuButtonTheme}"
+                            Foreground="#D3B49E"
+                            Content="&#xf1da;"
+                            IsChecked="True"
+                            Command="{Binding HistoryViewCommand}"/>
+                    </StackPanel>
+
+                    <RadioButton 
+                        Grid.Row="1"
+                        x:Name="ExitButton"
+                        Height="100"
+                        FontSize="48"
+                        FontWeight="Bold"
+                        FontFamily="{StaticResource SidebarIcons}"
+                        Style="{StaticResource MenuButtonTheme}"
+                        Foreground="#D3B49E"
+                        Content="&#xf2f5;"
+                        Margin="0,0,0,20"
+                        Command="{Binding QuitCommand}"/>
+                </Grid>
+            </Border>
+
+            <ContentControl 
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="10"
+                Content="{Binding CurrentView}"/>
+        </Grid>
+    </Border>
+</Window>
